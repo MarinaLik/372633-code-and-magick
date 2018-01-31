@@ -12,7 +12,7 @@ var LINE_HEIGHT = 20;
 
 window.renderStatistics = function (ctx, names, times) {
 
-// контрольные точки для кривых Безье, используются при рисовании облака: 4 кривых по 3 точки = 12 точек (без начальной), расстояние между точками 35 = ширина облака / 12.
+//контрольные точки для кривых Безье, используются при рисовании облака: 4 кривых по 3 точки = 12 точек (без начальной), расстояние между точками 35 = ширина облака / 12.
   var pointsX = [];
   var point = 0;
   for (var i = 1; i < 12; i++) {
@@ -43,13 +43,13 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillText(text, x, y);
   };
 
-  drawCloud(CLOUD_X + 10, CLOUD_Y + 10, 10, CLOUD_Y+ 10 + CLOUD_HEIGHT, CLOUD_HEIGHT + 10, 'rgba(0, 0, 0, 0.7)');
+  drawCloud(CLOUD_X + 10, CLOUD_Y + 10, 10, CLOUD_Y + 10 + CLOUD_HEIGHT, CLOUD_HEIGHT + 10, 'rgba(0, 0, 0, 0.7)');
   drawCloud(CLOUD_X, CLOUD_Y, 0, CLOUD_Y + CLOUD_HEIGHT, CLOUD_HEIGHT, 'rgb(255, 255, 255)');
 
-  drawText('Ура вы победили!', CLOUD_X + LINE_HEIGHT, LINE_HEIGHT*2);
-  drawText('Список результатов:', CLOUD_X + LINE_HEIGHT, LINE_HEIGHT*3);
+  drawText('Ура вы победили!', CLOUD_X + LINE_HEIGHT, LINE_HEIGHT * 2);
+  drawText('Список результатов:', CLOUD_X + LINE_HEIGHT, LINE_HEIGHT * 3);
 
-// расчет максимального времени
+  //расчет максимального времени
   var max = -1;
   for (var j = 0; j < times.length; j++) {
     var time = times[j];
@@ -58,20 +58,20 @@ window.renderStatistics = function (ctx, names, times) {
     }
   }
 
-  var step = HISTOGRAM_HEIGTH / (max-0);
+  var step = HISTOGRAM_HEIGTH / (max - 0);
   var initialX = CLOUD_X + GAP;
   var initialY = CLOUD_HEIGHT - LINE_HEIGHT * 1.5;
 
   var randomBlue = function () {
     return 'rgba(0, 0, 255,' + Math.random().toFixed(1) + 1 + ')';
   };
- // отрисовка столбцов гистограммы
+  // отрисовка столбцов гистограммы
   var drawBar = function (x, y, barHeight, color) {
     ctx.fillStyle = color;
     ctx.fillRect(x, y, BAR_WIDTH, barHeight);
   };
 
-  for (var i = 0; i < times.length; i++) {
+  for (i = 0; i < times.length; i++) {
     var barX = initialX + (GAP + BAR_WIDTH) * i;
     var barY = initialY - times[i] * step;
 
