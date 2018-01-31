@@ -12,7 +12,7 @@ var LINE_HEIGHT = 20;
 
 window.renderStatistics = function (ctx, names, times) {
 
-//контрольные точки для кривых Безье, используются при рисовании облака: 4 кривых по 3 точки = 12 точек (без начальной), расстояние между точками 35 = ширина облака / 12.
+// контрольные точки для кривых Безье, используются при рисовании облака: 4 кривых по 3 точки = 12 точек (без начальной), расстояние между точками 35 = ширина облака / 12.
   var pointsX = [];
   var point = 0;
   for (var i = 1; i < 12; i++) {
@@ -49,7 +49,7 @@ window.renderStatistics = function (ctx, names, times) {
   drawText('Ура вы победили!', CLOUD_X + LINE_HEIGHT, LINE_HEIGHT * 2);
   drawText('Список результатов:', CLOUD_X + LINE_HEIGHT, LINE_HEIGHT * 3);
 
-  //расчет максимального времени
+  // расчет максимального времени
   var max = -1;
   for (var j = 0; j < times.length; j++) {
     var time = times[j];
