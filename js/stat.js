@@ -58,7 +58,7 @@ window.renderStatistics = function (ctx, names, times) {
     }
   }
 
-  var step = HISTOGRAM_HEIGTH / (max - 0);
+  var step = HISTOGRAM_HEIGTH / max;
   var initialX = CLOUD_X + GAP;
   var initialY = CLOUD_HEIGHT - LINE_HEIGHT * 1.5;
 
