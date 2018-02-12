@@ -69,18 +69,18 @@ var wizardEyes = setupWizard.querySelector('.wizard-eyes');
 var wizardFireball = userDialog.querySelector('.setup-fireball-wrap');
 var wizardForm = userDialog.querySelector('.setup-wizard-form');
 
-var onPopupEscPress = function(evt) {
-  if (evt.keyCode === ESC_KEYCODE && wizardForm.elements.username != document.activeElement) {
+var onPopupEscPress = function (evt) {
+  if (evt.keyCode === ESC_KEYCODE && wizardForm.elements.username !== document.activeElement) {
     closePopup();
   }
 };
 
-var openPopup = function() {
+var openPopup = function () {
   userDialog.classList.remove('hidden');
   document.addEventListener('keydown', onPopupEscPress);
 };
 
-var closePopup = function() {
+var closePopup = function () {
   userDialog.classList.add('hidden');
   document.removeEventListener('keydown', onPopupEscPress);
 };
@@ -89,17 +89,17 @@ setupOpen.addEventListener('click', function() {
   openPopup();
 });
 
-setupOpen.addEventListener('keydown', function(evt) {
+setupOpen.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     openPopup();
   }
 });
 
-setupClose.addEventListener('click', function() {
+setupClose.addEventListener('click', function () {
   closePopup();
 });
 
-setupClose.addEventListener('keydown', function(evt) {
+setupClose.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     closePopup();
   }
@@ -112,16 +112,16 @@ var changeColor = function (evt, arrName, inputName) {
   wizardForm.elements[inputName].value = randomColor;
 };
 
-wizardCoat.addEventListener('click', function(evt) {
+wizardCoat.addEventListener('click', function (evt) {
   changeColor(evt, COATS_COLOR, 'coat-color');
 });
 
-wizardEyes.addEventListener('click', function(evt) {
+wizardEyes.addEventListener('click', function (evt) {
   changeColor(evt, EYES_COLOR, 'eyes-color');
 });
 
 // смена цвета фаербола
-wizardFireball.addEventListener('click', function(evt) {
+wizardFireball.addEventListener('click', function (evt) {
   var randomColor = arrRandomElem(FIREBALLS_COLOR);
   evt.currentTarget.setAttribute('style', 'background: ' + randomColor);
   wizardForm.elements['fireball-color'].value = randomColor;
